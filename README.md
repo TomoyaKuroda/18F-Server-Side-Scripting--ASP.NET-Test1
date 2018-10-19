@@ -1,1 +1,1 @@
-<p>Here is the live link</p>
+<p><a href="https://tomoya-kuroda-aspnet-test1.azurewebsites.net/">Here</a> is the live link</p>
