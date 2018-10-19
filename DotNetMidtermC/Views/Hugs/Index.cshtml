@@ -1,0 +1,51 @@
+﻿@model IEnumerable<DotNetMidtermC.Models.Hug>
+@{
+    ViewBag.Title = "Hugs";
+}
+<h2>Hugs</h2>
+@if (Request.IsAuthenticated)
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HugDate)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Hugee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HugType.HugType1)
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HugDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hugee)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HugType.HugType1)
+                </td>
+                <td>
+                    @if (Request.IsAuthenticated)
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = item.HugId })
+                    }
+                    @Html.ActionLink("Details", "Details", new { id = item.HugId })
+                    @if (Request.IsAuthenticated)
+                    {
+                        @Html.ActionLink("Delete", "Delete", new { id = item.HugId })
+                    }
+                </td>
+            </tr>
+        }
+    </table>
